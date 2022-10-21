@@ -23,9 +23,7 @@ class GridWidget extends StatelessWidget {
         int rowCount = (items.length / 2).ceil();
         /// Calculation of one cell height to show from bottom
         double bottomShift = itemHeight * rowCount +
-            axisSpacing * (rowCount - 1) +
-            gridMargin +
-            MediaQuery.of(context).viewPadding.top;
+            axisSpacing * (rowCount - 1) + gridMargin;
         /// Calculation size of logo widget
         double minHeight = constraints.maxHeight - bottomShift;
         /// Avoid negative height if bottomShift is to big
