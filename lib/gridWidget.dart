@@ -37,7 +37,7 @@ class GridWidget extends StatelessWidget {
                     },
                     childCount: items.length,
                   ),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: crossAxisCount.toInt(),
                       childAspectRatio: 2.0,
                       mainAxisSpacing: axisSpacing,
                       crossAxisSpacing: axisSpacing),
@@ -56,8 +56,7 @@ class GridWidget extends StatelessWidget {
     /// Calculation the grid cell with and height
     double itemWidth = (maxWidth -
         axisSpacing * (crossAxisCount - 1) -
-        gridMargin * 2) /
-        2;
+        gridMargin * 2) / crossAxisCount;
     double itemHeight = itemWidth / 2;
     /// Calculation rows count
     int rowCount = (items.length / 2).ceil();
