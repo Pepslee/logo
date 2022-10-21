@@ -5,7 +5,7 @@ class GridWidget extends StatelessWidget {
   final List<String> items;
 
   const GridWidget({Key? key, required this.items}) : super(key: key);
-  final double crossAxisCount = 4;
+  final double crossAxisCount = 2;
   final double axisSpacing = 10;
   final double gridMargin = 10;
 
