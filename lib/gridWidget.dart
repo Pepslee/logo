@@ -13,21 +13,9 @@ class GridWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        /// Calculation the grid cell with and height
-        double itemWidth = (constraints.maxWidth -
-            axisSpacing * (crossAxisCount - 1) -
-            gridMargin * 2) /
-            2;
-        double itemHeight = itemWidth / 2;
-        /// Calculation rows count
-        int rowCount = (items.length / 2).ceil();
-        /// Calculation of one cell height to show from bottom
-        double bottomShift = itemHeight * rowCount +
-            axisSpacing * (rowCount - 1) + gridMargin;
-        /// Calculation size of logo widget
-        double minHeight = constraints.maxHeight - bottomShift;
-        /// Avoid negative height if bottomShift is to big
-        minHeight = minHeight < 0 ? 0: minHeight;
+        double maxWidth = constraints.maxWidth;
+        double maxHeight = constraints.maxHeight;
+        double minHeight = calcLogoHeight(maxWidth, maxHeight);
         return Scrollbar(
           thickness: 8,
           child: CustomScrollView(
@@ -62,5 +50,24 @@ class GridWidget extends StatelessWidget {
         );
       },
     );
+  }
+
+  double calcLogoHeight(double maxWidth, double maxHeight) {
+    /// Calculation the grid cell with and height
+    double itemWidth = (maxWidth -
+        axisSpacing * (crossAxisCount - 1) -
+        gridMargin * 2) /
+        2;
+    double itemHeight = itemWidth / 2;
+    /// Calculation rows count
+    int rowCount = (items.length / 2).ceil();
+    /// Calculation of one cell height to show from bottom
+    double bottomShift = itemHeight * rowCount +
+        axisSpacing * (rowCount - 1) + gridMargin;
+    /// Calculation size of logo widget
+    double minHeight = maxHeight - bottomShift;
+    /// Avoid negative height if bottomShift is to big
+    minHeight = minHeight < 0 ? 0: minHeight;
+    return minHeight;
   }
 }

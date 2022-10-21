@@ -44,7 +44,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    int count = 30000;
+    int count = 0;
     List<String> items = List.generate(count, (index) => 'Item${index + 1}');
     return Scaffold(
       body: GridWidget(items: items),
