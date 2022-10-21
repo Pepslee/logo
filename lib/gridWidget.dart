@@ -40,7 +40,7 @@ class GridWidget extends StatelessWidget {
                     childCount: count,
                   ),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+                      crossAxisCount: crossAxisCount.toInt(),
                       childAspectRatio: 2.0,
                       mainAxisSpacing: axisSpacing,
                       crossAxisSpacing: axisSpacing),
