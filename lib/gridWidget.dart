@@ -5,7 +5,7 @@ class GridWidget extends StatelessWidget {
   final List<String> items;
 
   const GridWidget({Key? key, required this.items}) : super(key: key);
-  final double crossAxisCount = 2;
+  final double crossAxisCount = 4;
   final double axisSpacing = 10;
   final double gridMargin = 10;
 
@@ -59,7 +59,7 @@ class GridWidget extends StatelessWidget {
         gridMargin * 2) / crossAxisCount;
     double itemHeight = itemWidth / 2;
     /// Calculation rows count
-    int rowCount = (items.length / 2).ceil();
+    int rowCount = (items.length / crossAxisCount).ceil();
     /// Calculation of one cell height to show from bottom
     double bottomShift = itemHeight * rowCount +
         axisSpacing * (rowCount - 1) + gridMargin;
